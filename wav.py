@@ -226,8 +226,8 @@ if selector=="page1":
 elif selector=="page2":
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
     if codes:
-        st.write("あなたが入力したコードは: ", codes)
         codes = codes.split(' ')
+        st.write("あなたが入力したコードは: ", codes)
 
         y = 0
         A = 1
