@@ -225,23 +225,18 @@ if selector=="page1":
 
 elif selector=="page2":
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
-    note_len = st.number_input('音符を入力')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
         codes = codes.split(' ')
 
-    if note_len:
-        st.write("あなたが入力した音符は: ", note_len)
-
-    if codes and note_len:
         y = 0
         A = 1
         fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
         rate = 48000
         BPM = 106
 
-        for r,n in zip(note_len,codes):
-            t = (120/BPM) * 2/r
+        for n in codes:
+            t = (120/BPM) * 2/4
             n_len = np.arange(0, t, 1/rate)
             if n=='R':
                 code = A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len)
