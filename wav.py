@@ -232,7 +232,6 @@ elif selector=="page2":
 
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
-        note_len = note_len.split(' ')
 
     if codes and note_len:
         y = 0
