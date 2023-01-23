@@ -225,15 +225,14 @@ if selector=="page1":
 
 elif selector=="page2":
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
+    note_len = st.number_input('音符を入力')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
-    codes = codes.split(' ')
+        codes = codes.split(' ')
 
-    note_len = st.number_input('音符を入力', 8,8,8,8,8,8,4, step=7)
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
-    note_len = note_len.split(' ')
-
+        note_len = note_len.split(' ')
 
     if codes and note_len:
         y = 0
