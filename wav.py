@@ -9,46 +9,46 @@ pagelist = ["page1","page2"]
 selector=st.sidebar.selectbox( "ページ選択",pagelist)
 if selector=="page1":
     y = 0
-    A = 1
+    a = 1
     fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
     rate = 48000
     BPM = 106
     note_len = [4, 4, 4, 4, 1, 1, 1, 2, 2, 1, 2, 2, 1, 2, 4, 4, 1, 1, 1, 2, 2, 1, 2, 2, 1, 1, 4, 4, 2]
-    codes = ['R', 'R', 'Asu', 'Aa', 'D', 'ACs', 'Bm', 'Asu', 'Aa', 'G', 'DFs', 'Bm', 'G', 'Aa', 'Asu', 'Aa', 'D', 'ACs', 'Bm', 'Asu', 'Aa', 'G', 'DFs', 'Bm', 'G', 'Aa', 'D', 'R', 'R']
+    codes = ['R', 'R', 'asu', 'aa', 'D', 'aCs', 'Bm', 'asu', 'aa', 'G', 'DFs', 'Bm', 'G', 'aa', 'asu', 'aa', 'D', 'aCs', 'Bm', 'asu', 'aa', 'G', 'DFs', 'Bm', 'G', 'aa', 'D', 'R', 'R']
 
     for r,n in zip(note_len,codes):
         t = (120/BPM) * 2/r
         n_len = np.arange(0, t, 1/rate)
         if n=='R':
-            code = A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len)
+            code = a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len)
             y = np.append(y, code)
-        elif n=='Asu':
-            code = A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) #ラレミ
+        elif n=='asu':
+            code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len) #ラレミ
             y = np.append(y, code)
-        elif n=='Aa':
-            code = A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len)#ラド#ミ
+        elif n=='aa':
+            code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len)#ラド#ミ
             y = np.append(y, code)
         elif n=='D':
-            code = A*np.sin(2*np.pi*fre[3]*n_len) + A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
+            code = a*np.sin(2*np.pi*fre[3]*n_len) + a*np.sin(2*np.pi*fre[7]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
             y = np.append(y, code)
-        elif n=='ACs':
-            code = A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) + A*np.sin(2*np.pi*fre[22]*n_len) #ド#ミラ
+        elif n=='aCs':
+            code = a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len) + a*np.sin(2*np.pi*fre[22]*n_len) #ド#ミラ
             y = np.append(y, code)
         elif n=='Bm':
-            code = A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[19]*n_len) #シレファ#
+            code = a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) + a*np.sin(2*np.pi*fre[19]*n_len) #シレファ#
             y = np.append(y, code)
-        elif n=='As':
-            code = A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) #ラ#レファ
+        elif n=='as':
+            code = a*np.sin(2*np.pi*fre[11]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) + a*np.sin(2*np.pi*fre[18]*n_len) #ラ#レファ
             y = np.append(y, code)
         elif n=='G':
-            code = A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) # ソシレ
+            code = a*np.sin(2*np.pi*fre[8]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) # ソシレ
             y = np.append(y, code)
         elif n=='DFs':
-            code = A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
+            code = a*np.sin(2*np.pi*fre[7]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
             y = np.append(y, code)
 
     # メロディー
-    A = 1   # 振幅
+    a = 1   # 振幅
 
     f0=0
     f1=987.7666025122483
@@ -73,146 +73,146 @@ if selector=="page1":
     t7=np.arange(0, 0.18867924528301885, 1/rate)
     t8=np.arange(0, 0.4528301886792453, 1/rate)
 
-    z = A*np.sin(2*np.pi*f0*t2)
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))#31終わり
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))#34
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f1*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f1*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t))#37
-    z=np.append(z,A*np.sin(2*np.pi*f4*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))#40
-    z=np.append(z,A*np.sin(2*np.pi*f4*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f7*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f2*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t8))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f5*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t5))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f3*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f4*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f8*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t4))
-    z=np.append(z,A*np.sin(2*np.pi*f6*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t))
-    z=np.append(z,A*np.sin(2*np.pi*f0*t))
+    z = a*np.sin(2*np.pi*f0*t2)
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))#31終わり
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))#34
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f1*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f1*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t))#37
+    z=np.append(z,a*np.sin(2*np.pi*f4*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))#40
+    z=np.append(z,a*np.sin(2*np.pi*f4*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f7*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f2*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t8))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f5*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t5))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f3*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f4*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f8*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t4))
+    z=np.append(z,a*np.sin(2*np.pi*f6*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t))
+    z=np.append(z,a*np.sin(2*np.pi*f0*t))
 
     st.markdown('# マリーゴールド')
     st.markdown('## コード')
@@ -230,7 +230,7 @@ elif selector=="page2":
         st.write("あなたが入力したコードは: ", codes)
 
         y = 0
-        A = 1
+        a = 1
         fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
         rate = 48000
         BPM = 106
@@ -239,50 +239,32 @@ elif selector=="page2":
             t = (120/BPM) * 2/4
             n_len = np.arange(0, t, 1/rate)
             if n=='R':
-                code = A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len)
+                code = a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len)
                 y = np.append(y, code)
             elif n=='C':
-                code = A*np.sin(2*np.pi*fre[1]*n_len) + A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) #ラレミ
-                y = np.append(y, code)
-            elif n=='C♯' or 'D♭':
-                code = A*np.sin(2*np.pi*fre[2]*n_len) + A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len)#ラド#ミ
+                code = a*np.sin(2*np.pi*fre[1]*n_len) + a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[8]*n_len) #ラレミ
                 y = np.append(y, code)
             elif n=='D':
-                code = A*np.sin(2*np.pi*fre[3]*n_len) + A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
-                y = np.append(y, code)
-            elif n=='D♯' or 'E♭':
-                code = A*np.sin(2*np.pi*fre[4]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) #ド#ミラ
+                code = a*np.sin(2*np.pi*fre[3]*n_len) + a*np.sin(2*np.pi*fre[7]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
                 y = np.append(y, code)
             elif n=='E':
-                code = A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
-                y = np.append(y, code)
+                code = a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[9]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
+                y = np.append(y, codeA
             elif n=='F':
-                code = A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
-                y = np.append(y, code)
-            elif n=='F♯' or 'G♭':
-                code = A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) # ソシレ
+                code = a*np.sin(2*np.pi*fre[6]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
                 y = np.append(y, code)
             elif n=='G':
-                code = A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
+                code = a*np.sin(2*np.pi*fre[8]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
                 y = np.append(y, code)
-            elif n=='G♯' or 'A♭':
-                code = A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) #ラ#レファ
-                y = np.append(y, code)
-            elif n=='A':
-                code = A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) # ソシレ
-                y = np.append(y, code)
-            elif n=='A♯' or 'B♭':
-                code = A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) #ファ#ラレ
+            elif n=='a':
+                code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len) # ソシレ
                 y = np.append(y, code)
             elif n=='B':
-                code = A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) + A*np.sin(2*np.pi*fre[19]*n_len) # ソシレ
-                y = np.append(y, code)
-            elif n=='B♯' or 'C♭':
-                code = A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) + A*np.sin(2*np.pi*fre[20]*n_len) #ファ#ラレ
+                code = a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[16]*n_len) + a*np.sin(2*np.pi*fre[19]*n_len) # ソシレ
                 y = np.append(y, code)
             elif n=='C1':
-                code = A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) + A*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
+                code = a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[18]*n_len) + a*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
                 y = np.append(y, code)
 
-            st.markdown('## 入力したコード')
-            st.audio(y, sample_rate=rate)
+        st.markdown('## 入力したコード')
+        st.audio(y, sample_rate=rate)
