@@ -223,7 +223,7 @@ if selector=="マリーゴールド演奏":
     st.markdown('## 合体')
     st.audio("output.wav", format="audio/wav") #displaying the audio
 
-    wav = "https://github.com/HwaI12/AIkiso/raw/main/output.wav"
+    wav = "https://github.com/HwaI12/humanai/raw/main/output.wav"
     button = st.download_button(label="output.wav file",
                 data=wav,
                 file_name=f'output.wav',
