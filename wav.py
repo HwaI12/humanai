@@ -231,12 +231,12 @@ elif selector=="page2":
     BPM = 106
 
     codes = st.text_input('コードを入力')
-    codes = codes.split('')
+    codes = codes.split(' ')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
 
     note_len = st.text_input('音符を入力')
-    note_len = note_len.split('')
+    note_len = note_len.split(' ')
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
 
