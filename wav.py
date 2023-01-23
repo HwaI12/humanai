@@ -242,28 +242,28 @@ elif selector=="page2":
                 code = a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len) + a*np.sin(2*np.pi*fre[0]*n_len)
                 y = np.append(y, code)
             elif n=='C':
-                code = a*np.sin(2*np.pi*fre[1]*n_len) + a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[8]*n_len) #ラレミ
+                code = a*np.sin(2*np.pi*fre[1]*n_len) + a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[8]*n_len)
                 y = np.append(y, code)
             elif n=='D':
-                code = a*np.sin(2*np.pi*fre[3]*n_len) + a*np.sin(2*np.pi*fre[7]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
+                code = a*np.sin(2*np.pi*fre[3]*n_len) + a*np.sin(2*np.pi*fre[7]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len)
                 y = np.append(y, code)
             elif n=='E':
-                code = a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[9]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
+                code = a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[9]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len)
                 y = np.append(y, code)
             elif n=='F':
-                code = a*np.sin(2*np.pi*fre[6]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
+                code = a*np.sin(2*np.pi*fre[6]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[13]*n_len)
                 y = np.append(y, code)
             elif n=='G':
-                code = a*np.sin(2*np.pi*fre[8]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
+                code = a*np.sin(2*np.pi*fre[8]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len)
                 y = np.append(y, code)
             elif n=='a':
-                code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len) # ソシレ
+                code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len)
                 y = np.append(y, code)
             elif n=='B':
-                code = a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[16]*n_len) + a*np.sin(2*np.pi*fre[19]*n_len) # ソシレ
+                code = a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[16]*n_len) + a*np.sin(2*np.pi*fre[19]*n_len)
                 y = np.append(y, code)
             elif n=='C1':
-                code = a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[18]*n_len) + a*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
+                code = a*np.sin(2*np.pi*fre[13]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len) + a*np.sin(2*np.pi*fre[20]*n_len)
                 y = np.append(y, code)
 
         st.markdown('## 入力したコード')
