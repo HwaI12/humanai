@@ -230,64 +230,65 @@ elif selector=="page2":
     rate = 48000
     BPM = 106
 
-    codes = st.text_input('コードを入力')
+    codes = st.text_input('コードを入力', 'C D E F G A B C1')
     codes = codes.split(' ')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
 
-    note_len = st.text_input('音符を入力')
+    note_len = st.text_input('音符を入力', '8 8 8 8 8 8 4')
     note_len = note_len.split(' ')
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
 
-    for r,n in zip(note_len,codes):
-        t = (120/BPM) * 2/r
-        n_len = np.arange(0, t, 1/rate)
-        if n=='R':
-            code = A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len)
-            y = np.append(y, code)
-        elif n=='C':
-            code = A*np.sin(2*np.pi*fre[1]*n_len) + A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) #ラレミ
-            y = np.append(y, code)
-        elif n=='C♯' or 'D♭':
-            code = A*np.sin(2*np.pi*fre[2]*n_len) + A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len)#ラド#ミ
-            y = np.append(y, code)
-        elif n=='D':
-            code = A*np.sin(2*np.pi*fre[3]*n_len) + A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
-            y = np.append(y, code)
-        elif n=='D♯' or 'E♭':
-            code = A*np.sin(2*np.pi*fre[4]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) #ド#ミラ
-            y = np.append(y, code)
-        elif n=='E':
-            code = A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
-            y = np.append(y, code)
-        elif n=='F':
-            code = A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
-            y = np.append(y, code)
-        elif n=='F♯' or 'G♭':
-            code = A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) # ソシレ
-            y = np.append(y, code)
-        elif n=='G':
-            code = A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
-            y = np.append(y, code)
-        elif n=='G♯' or 'A♭':
-            code = A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) #ラ#レファ
-            y = np.append(y, code)
-        elif n=='A':
-            code = A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) # ソシレ
-            y = np.append(y, code)
-        elif n=='A♯' or 'B♭':
-            code = A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) #ファ#ラレ
-            y = np.append(y, code)
-        elif n=='B':
-            code = A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) + A*np.sin(2*np.pi*fre[19]*n_len) # ソシレ
-            y = np.append(y, code)
-        elif n=='B♯' or 'C♭':
-            code = A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) + A*np.sin(2*np.pi*fre[20]*n_len) #ファ#ラレ
-            y = np.append(y, code)
-        elif n=='C1':
-            code = A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) + A*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
-            y = np.append(y, code)
+    if codes and note_len == True:
+        for r,n in zip(note_len,codes):
+            t = (120/BPM) * 2/r
+            n_len = np.arange(0, t, 1/rate)
+            if n=='R':
+                code = A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len) + A*np.sin(2*np.pi*fre[0]*n_len)
+                y = np.append(y, code)
+            elif n=='C':
+                code = A*np.sin(2*np.pi*fre[1]*n_len) + A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) #ラレミ
+                y = np.append(y, code)
+            elif n=='C♯' or 'D♭':
+                code = A*np.sin(2*np.pi*fre[2]*n_len) + A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len)#ラド#ミ
+                y = np.append(y, code)
+            elif n=='D':
+                code = A*np.sin(2*np.pi*fre[3]*n_len) + A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) #レファ#ラ
+                y = np.append(y, code)
+            elif n=='D♯' or 'E♭':
+                code = A*np.sin(2*np.pi*fre[4]*n_len) + A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) #ド#ミラ
+                y = np.append(y, code)
+            elif n=='E':
+                code = A*np.sin(2*np.pi*fre[5]*n_len) + A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
+                y = np.append(y, code)
+            elif n=='F':
+                code = A*np.sin(2*np.pi*fre[6]*n_len) + A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
+                y = np.append(y, code)
+            elif n=='F♯' or 'G♭':
+                code = A*np.sin(2*np.pi*fre[7]*n_len) + A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) # ソシレ
+                y = np.append(y, code)
+            elif n=='G':
+                code = A*np.sin(2*np.pi*fre[8]*n_len) + A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) #ファ#ラレ
+                y = np.append(y, code)
+            elif n=='G♯' or 'A♭':
+                code = A*np.sin(2*np.pi*fre[9]*n_len) + A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) #ラ#レファ
+                y = np.append(y, code)
+            elif n=='A':
+                code = A*np.sin(2*np.pi*fre[10]*n_len) + A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) # ソシレ
+                y = np.append(y, code)
+            elif n=='A♯' or 'B♭':
+                code = A*np.sin(2*np.pi*fre[11]*n_len) + A*np.sin(2*np.pi*fre[15]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) #ファ#ラレ
+                y = np.append(y, code)
+            elif n=='B':
+                code = A*np.sin(2*np.pi*fre[12]*n_len) + A*np.sin(2*np.pi*fre[16]*n_len) + A*np.sin(2*np.pi*fre[19]*n_len) # ソシレ
+                y = np.append(y, code)
+            elif n=='B♯' or 'C♭':
+                code = A*np.sin(2*np.pi*fre[13]*n_len) + A*np.sin(2*np.pi*fre[17]*n_len) + A*np.sin(2*np.pi*fre[20]*n_len) #ファ#ラレ
+                y = np.append(y, code)
+            elif n=='C1':
+                code = A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) + A*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
+                y = np.append(y, code)
 
-    st.markdown('## 入力したコード')
-    st.audio(y, sample_rate=rate)
+        st.markdown('## 入力したコード')
+        st.audio(y, sample_rate=rate)
