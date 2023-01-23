@@ -1,11 +1,6 @@
 import streamlit as st
 import numpy as np
-import streamlit.components.v1 as stc
-import io
-from scipy.io import wavfile
-import librosa
-import base64
-import tim
+import time
 
 # code
 y = 0
