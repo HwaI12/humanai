@@ -214,26 +214,7 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 
 st.audio(y, sample_rate=rate)
 st.audio(z, sample_rate=rate)
-
-audio_path1 = 'wav/output.wav' #入力する音声ファイル
-
-audio_placeholder = st.empty()
-
-file_ = open(audio_path1, "rb")
-contents = file_.read()
-file_.close()
-
-audio_str = "data:audio/wav;base64,%s"%(base64.b64encode(contents).decode())
-audio_html = """
-                <audio autoplay=True>
-                <source src="%s" type="audio/wav" autoplay=True>
-                Your browser does not support the audio element.
-                </audio>
-            """ %audio_str
-
-audio_placeholder.empty()
-time.sleep(0.5) #これがないと上手く再生されません
-audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
+st.audio("wav/output.wav", sample_rate=rate)
 
 # audio_file = open('wav/output.wav', 'rb')
 # audio_bytes = audio_file.read()
