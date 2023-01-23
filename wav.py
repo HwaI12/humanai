@@ -241,7 +241,7 @@ elif selector=="page2":
     note_len = note_len.split(' ')
 
 
-    if codes and note_len == True:
+    if codes and note_len:
         for r,n in zip(note_len,codes):
             t = (120/BPM) * 2/r
             n_len = np.arange(0, t, 1/rate)
