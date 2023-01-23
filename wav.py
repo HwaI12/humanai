@@ -224,24 +224,24 @@ if selector=="page1":
     st.audio("output.wav", format="audio/wav") #displaying the audio
 
 elif selector=="page2":
-    y = 0
-    A = 1
-    fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
-    rate = 48000
-    BPM = 106
-
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
     codes = codes.split(' ')
 
-    note_len = st.text_input('音符を入力', '8 8 8 8 8 8 4')
+    note_len = st.number_input('音符を入力', '8 8 8 8 8 8 4')
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
     note_len = note_len.split(' ')
 
 
     if codes and note_len:
+        y = 0
+        A = 1
+        fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
+        rate = 48000
+        BPM = 106
+
         for r,n in zip(note_len,codes):
             t = (120/BPM) * 2/r
             n_len = np.arange(0, t, 1/rate)
