@@ -212,3 +212,7 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 
 st.audio(y, sample_rate=rate)
 st.audio(z, sample_rate=rate)
+
+audio_file = open('output.wav','rb') #enter the filename with filepath
+audio_bytes = audio_file.read() #reading the file
+st.audio(audio_bytes, format='audio/wav') #displaying the audio
