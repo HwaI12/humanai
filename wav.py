@@ -229,7 +229,7 @@ elif selector=="page2":
         st.write("あなたが入力したコードは: ", codes)
     codes = codes.split(' ')
 
-    note_len = st.number_input('音符を入力', '8 8 8 8 8 8 4')
+    note_len = st.number_input('音符を入力', 8 8 8 8 8 8 4)
     if note_len:
         st.write("あなたが入力した音符は: ", note_len)
     note_len = note_len.split(' ')
