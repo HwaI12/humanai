@@ -213,6 +213,9 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 st.audio(y, sample_rate=rate)
 st.audio(z, sample_rate=rate)
 
-audio_file = open('wav/output.wav', 'rb')
-audio_bytes = audio_file.read()
-st.audio(audio_bytes, format='audio/wav')
+mix = y+z
+st.audio(mix, sample_rate=rate)
+
+# audio_file = open('wav/output.wav', 'rb')
+# audio_bytes = audio_file.read()
+# st.audio(audio_bytes, format='audio/wav')
