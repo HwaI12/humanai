@@ -4,7 +4,7 @@ import time
 
 st.set_page_config(layout="wide")
 #セレクトボックスのリストを作成
-pagelist = ["page1","page2"]
+pagelist = ["マリーゴールド演奏","コード入力"]
 #サイドバーのセレクトボックスを配置
 selector=st.sidebar.selectbox( "ページ選択",pagelist)
 if selector=="page1":
@@ -214,7 +214,7 @@ if selector=="page1":
     z=np.append(z,a*np.sin(2*np.pi*f0*t))
     z=np.append(z,a*np.sin(2*np.pi*f0*t))
 
-    st.markdown('# マリーゴールド')
+    st.title('マリーゴールド')
     st.markdown('## コード')
     st.audio(y, sample_rate=rate)
     st.markdown('## メロディー')
@@ -230,6 +230,7 @@ if selector=="page1":
                 mime='audio/wav')
 
 elif selector=="page2":
+    st.title('ピアノのコードを入力してみよう')
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
     if codes:
         st.write("あなたが入力したコードは: ", codes)
