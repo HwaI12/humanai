@@ -209,12 +209,12 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 z=np.append(z,A*np.sin(2*np.pi*f0*t))
 z=np.append(z,A*np.sin(2*np.pi*f0*t))
 
-st.markdown('Code')
+st.markdown('## Code')
 st.audio(y, sample_rate=rate)
-st.markdown('melody')
+st.markdown('## melody')
 st.audio(z, sample_rate=rate)
 
-st.markdown('Combine')
+st.markdown('## Combine')
 audio_file = open('output.wav','rb') #enter the filename with filepath
 audio_bytes = audio_file.read() #reading the file
 st.audio(audio_bytes, format='audio/wav') #displaying the audio
