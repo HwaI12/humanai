@@ -217,7 +217,7 @@ st.audio(z, sample_rate=rate)
 audio_file = open('output.wav', 'rb')
 audio_bytes = audio_file.read()
 
-st.audio(audio_bytes, format='audio/ogg')
+st.audio(audio_bytes, format='audio/wav')
 # audio_file = open('wav/output.wav', 'rb')
 # audio_bytes = audio_file.read()
 # st.audio(audio_bytes, format='audio/wav')
