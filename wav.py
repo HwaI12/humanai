@@ -249,7 +249,7 @@ elif selector=="page2":
                 y = np.append(y, code)
             elif n=='E':
                 code = a*np.sin(2*np.pi*fre[5]*n_len) + a*np.sin(2*np.pi*fre[9]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) #シレファ#
-                y = np.append(y, codeA
+                y = np.append(y, code)
             elif n=='F':
                 code = a*np.sin(2*np.pi*fre[6]*n_len) + a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[13]*n_len) #ラ#レファ
                 y = np.append(y, code)
