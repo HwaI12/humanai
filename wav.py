@@ -214,7 +214,7 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 
 st.audio(y, sample_rate=rate)
 st.audio(z, sample_rate=rate)
-audio_file = open('wav/output.wav', 'rb')
+audio_file = open('output.wav', 'rb')
 audio_bytes = audio_file.read()
 
 st.audio(audio_bytes, format='audio/ogg')
