@@ -223,6 +223,12 @@ if selector=="page1":
     st.markdown('## 合体')
     st.audio("output.wav", format="audio/wav") #displaying the audio
 
+    wav = "https://github.com/HwaI12/AIkiso/blob/main/output.wav"
+    button = st.download_button(label="output.wav file",
+                data=wav,
+                file_name=f'output.wav',
+                mime='audio/wav')
+
 elif selector=="page2":
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
     if codes:
