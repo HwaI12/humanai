@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 pagelist = ["マリーゴールド演奏","コード入力"]
 #サイドバーのセレクトボックスを配置
 selector=st.sidebar.selectbox( "ページ選択",pagelist)
-if selector=="page1":
+if selector=="マリーゴールド演奏":
     y = 0
     a = 1
     fre = [0] + [440.0 * 2.0**((i-9)/12.0) for i in range(24)]
@@ -229,7 +229,7 @@ if selector=="page1":
                 file_name=f'output.wav',
                 mime='audio/wav')
 
-elif selector=="page2":
+elif selector=="コード入力":
     st.title('ピアノのコードを入力してみよう')
     codes = st.text_input('コードを入力', 'C D E F G A B C1')
     if codes:
