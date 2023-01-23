@@ -284,5 +284,5 @@ elif selector=="page2":
                 code = A*np.sin(2*np.pi*fre[14]*n_len) + A*np.sin(2*np.pi*fre[18]*n_len) + A*np.sin(2*np.pi*fre[21]*n_len) #ファ#ラレ
                 y = np.append(y, code)
 
-        st.markdown('## 入力したコード')
-        st.audio(y, sample_rate=rate)
+            st.markdown('## 入力したコード')
+            st.audio(y, sample_rate=rate)
