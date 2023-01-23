@@ -256,7 +256,7 @@ elif selector=="page2":
             elif n=='G':
                 code = a*np.sin(2*np.pi*fre[8]*n_len) + a*np.sin(2*np.pi*fre[12]*n_len) + a*np.sin(2*np.pi*fre[15]*n_len)
                 y = np.append(y, code)
-            elif n=='a':
+            elif n=='A':
                 code = a*np.sin(2*np.pi*fre[10]*n_len) + a*np.sin(2*np.pi*fre[14]*n_len) + a*np.sin(2*np.pi*fre[17]*n_len)
                 y = np.append(y, code)
             elif n=='B':
