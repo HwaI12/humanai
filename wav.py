@@ -1,9 +1,11 @@
 import streamlit as st
 import numpy as np
 import streamlit.components.v1 as stc
+import io
+from scipy.io import wavfile
 import librosa
 import base64
-import time
+import tim
 
 # code
 y = 0
@@ -216,8 +218,13 @@ z=np.append(z,A*np.sin(2*np.pi*f0*t))
 st.audio(y, sample_rate=rate)
 st.audio(z, sample_rate=rate)
 
+
 data, rate = librosa.load("output.wav")
-st.audio(data) # dataはnumpy.ndarrayクラス
+
+virtualfile = io.BytesIO()
+wavfile.write(virtualfile, rate=rate, data=data)
+
+st.audio(virtualfile, format='wav')
 # audio_file = open('wav/output.wav', 'rb')
 # audio_bytes = audio_file.read()
 # st.audio(audio_bytes, format='audio/wav')
